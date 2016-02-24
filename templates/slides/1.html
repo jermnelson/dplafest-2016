@@ -2,10 +2,24 @@
 
 {% block main %}
 <h2 class="mx2">Linked Data Fragments</h2>
+<div class="grd-row mx2">
+		  <section class="col-3">
+		  <h4>RDF Graphs</h4>
+		  <p>The promise of RDF graphs </p>
+		  <h4>SPARQL Endpoints</h4>
+		  <p>Performance of full-featured SPARQL endpoints</p>
+		  </section>
+		  <section class="col-3">
+		  <h4>Fragments</h4>
+		  <p>Ruben solution is to decompose SPARQL into a simplified access
+		  pattern</p>
+		  </section>
+  </div>
+<p class="measure p2">
 <a class="btn--blue mx2" href="{{ url_for('show_slide', number=2) }}">
 		Server Beginnings
 				<i class="fa fa-hand-o-right"></i>
 
 </a>
-
+</p>
 {% endblock %}

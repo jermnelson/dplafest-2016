@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h2 class="mx2">Python Prototypes</h2>
+<p class="measure p2">
+<a class="btn--green mx2" href="{{ url_for('show_slide', number=3) }}">
+		<i class="fa fa-hand-o-left"></i>
+		Redis</a>
+<a class="btn--blue mx2" href="{{ url_for('show_slide', number=5) }}">
+		Results
+		<i class="fa fa-hand-o-right"></i>
+
+</a>
+</p>
+{% endblock %}

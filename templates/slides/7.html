@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h2 class="mx2">What's Next</h2>
+<p class="measure p2">
+<a class="btn--green mx2" href="{{ url_for('show_slide', number=5) }}">
+		<i class="fa fa-hand-o-left"></i>
+		Go Production Server</a>
+</p>
+{% endblock %}

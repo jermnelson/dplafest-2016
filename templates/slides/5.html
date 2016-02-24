@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h2 class="mx2">Preliminary Results</h2>
+<p class="measure p2">
+<a class="btn--green mx2" href="{{ url_for('show_slide', number=4) }}">
+		<i class="fa fa-hand-o-left"></i>
+		Python Prototypes</a>
+<a class="btn--blue mx2" href="{{ url_for('show_slide', number=6) }}">
+		Go Production Server
+		<i class="fa fa-hand-o-right"></i>
+
+</a>
+</p>
+{% endblock %}
