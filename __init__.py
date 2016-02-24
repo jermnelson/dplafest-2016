@@ -5,6 +5,13 @@ from flask import Flask, render_template, url_for
 
 app = Flask(__name__)
 
+@app.route("/slide/")
+@app.route("/slide/<number>")
+def show_slide(number=None):
+    if not number:
+        return render_template("slides/index.html")
+    return render_template("slides/{}.html".format(number))
+
 @app.route("/")
 def home():
     return render_template("index.html")

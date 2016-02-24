@@ -3,17 +3,25 @@
 <head>
   <!-- ... -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/furtive.min.css') }}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  
   <!-- ... -->
 </head>
-<body>
+<body>  {% block header %}
+		<img class="mx2" src="{{ url_for('static', filename='img/DPLAfest_2016.jpg') }}" style="width: 640px" alt="DPLAfest 2016 logo">
+        <h3 class="mx2">Testing a Linked Data Fragments Server using DPLA Data</h2>
+		{% endblock %}
+
 		{% block main %}
-		<h1 class="mx2">DPLAfest 2016</h1>
-		<h2 class="mx2">Testing a Linked Data Fragments Server using DPLA Data</h2>
-		<h3 class="mx2">Jeremy Nelson<br>
+				<h4 class="mx2">Jeremy Nelson<br>
 				Metadata &amp; Systems Librarian<br>
-				Colorado College
-		</h3>
-		<button class="btn--blue">Start</button>
+				Colorado College<br>
+				email: <a href="mailto:jeremy.nelson@coloradocollege.edu">jeremy.nelson@coloradocollege.edu</a>
+		</h4>
+		<a class="btn--blue mx2" href="{{ url_for('show_slide', number=1) }}">
+				Start
+				<i class="fa fa-hand-o-right fa-lg"></i>
+		</a>
 		{% endblock %}
 </body>
 </html>

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h1 class="mx2">Slides</h1>
+<ol>
+{% for i in range(1,8) %}
+<li><a href="{{ url_for('show_slide', number=i) }}">{{ i }}</a></li>
+{% endfor %}
+</ol>
+
+{% endblock %}
