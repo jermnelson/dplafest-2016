@@ -10,12 +10,13 @@
 <body>  {% block header %}
 		<img class="mx2" src="{{ url_for('static', filename='img/DPLAfest_2016.jpg') }}" style="width: 640px" alt="DPLAfest 2016 logo">
         <h3 class="mx2">Testing a Linked Data Fragments Server using DPLA Data</h2>
+	<p class="mx2">An Intelligent Triplestore Cache for RDF Applications</p>
 		{% endblock %}
 
 		{% block main %}
 				<h4 class="mx2">Jeremy Nelson<br>
-				Metadata &amp; Systems Librarian<br>
-				Colorado College<br>
+				Metadata &amp; Systems Librarian, Colorado College<br>
+				CTO <a href="http://knowledgelinks.io">Knowledgelinks.io</a><br>
 				email: <a href="mailto:jeremy.nelson@coloradocollege.edu">jeremy.nelson@coloradocollege.edu</a>
 		</h4>
 		<a class="btn--blue mx2" href="{{ url_for('show_slide', number=1) }}">
