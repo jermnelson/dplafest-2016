@@ -3,18 +3,32 @@
 {% block main %}
 <h2 class="mx2">Linked Data Fragments</h2>
 <div class="grd-row mx2">
-		  <section class="col-3">
-		  <h4>RDF Graphs</h4>
-		  <p>The promise of RDF graphs </p>
-		  <h4>SPARQL Endpoints</h4>
-		  <p>Performance of full-featured SPARQL endpoints</p>
-		  </section>
-		  <section class="col-3">
-		  <h4>Fragments</h4>
-		  <p>Ruben solution is to decompose SPARQL into a simplified access
-		  pattern</p>
-		  </section>
-  </div>
+    <div class="grd-row-col-3-6">
+         <h4>RDF Graphs</h4>
+         <p>The promise of RDF graphs</p>
+         <h4>SPARQL Endpoints</h4>
+           <p>
+             Providing a full SPARQL endpoint for both small and large RDF linked-data sets is 
+             costly both in time and resources, especially for more complex queries. This 
+             often results in poor responses and unreliable service, especially if the SPARQL 
+             endpoint trying to handle multiple clients querying the RDF graph database.   
+            </p>
+    </div>
+    <div class="grd-row-col-3-6">
+         <h4>Fragments</h4>
+        <a href="http://ruben.verborgh.org/">Ruben Verborgh</a> of <a href="">Ghent University</a> in 
+        Belgium originated the concept of <a href="http://linkeddatafragments.org">Linked Data Fragments</a> 
+        that offers a middle-ground between 
+        different options for accessing RDF graph data. Instead of needing high-powered server to handle 
+        the processing load required for hosting a full SPARQL endpoint or the alternative of just 
+        providing a data dump where all of the data is processed locally to be useful, the Linked 
+        Data Fragments approach
+        instead offers a lightweight querying pattern called a 
+        <strong>Triple Pattern Fragment</strong> that returns  one or more triples based on a simplified
+        syntax.
+        </p>
+    </div>
+</div>
 <p class="measure p2">
 <a class="btn--blue mx2" href="{{ url_for('show_slide', number=2) }}">
 		Server Beginnings
