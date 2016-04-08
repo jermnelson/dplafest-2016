@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block main %}
-<h2 class="mx2"><img style="width: 450px;height: auto" src="{{ url_for('static', filename="img/redis.png") }}"> - LRU Cache</h2>
+<h2 class="mx2"><img style="width: 450px;height: auto" src="{{ url_for('static', filename="img/redis.png") }}"></h2>
 <div class="grd-row mx2">
     <section class="grd-row-col-2-6">
         
@@ -16,15 +16,56 @@
     <section class="grd-row-col-4-6">
         <p>Redis real power comes from the rich set of operations you can perform on different data structures 
         like lists, sets, hashes, sorted sets, and other more exotic data types. 
-
         </p>
-        <pre>
->> Clients
+        <hr>
+        <table>
+            <tr>
+                <th>Data Structure</th>
+                <th>Description</th>
+                <th>Used in LDFS?</th>
+            </tr>
+            <tr>    
+                <td>String</td>
+                <td>Redis most basic data structure type is a string value that Redis stores and manipulates
+                    as characters.</td>
+                <td>Yes</td>
+            </tr>
+            <tr>    
+                <td>List</td>
+                <td>A collection of values that preserves order, values can be integers, strings, floats,
+                and can be mixed and matched. Duplicate values are allowed</td>
+                <td>No</td>
+            </tr>
+            <tr>    
+                <td>Hash</td>
+                <td></td>
+                <td>Yes*</td>
+            </tr>
 
-        </pre>  
+            <tr>    
+                <td>Set</td>
+                <td></td>
+                <td>Yes*</td>
+            </tr>
+            <tr>    
+                <td>Sorted Set</td>
+                <td></td>
+                <td>Yes*</td>
+            </tr>
+
+        </table>
+        <hr>
         <div class="bg--dark-gray mx2" style="width: 50%">
-            <h4 class="fnt--light-gray txt--center"><em>Mastering Redis</em></h4>
+            <h4 class="fnt--light-gray txt--center">Book Plug: <em>Mastering Redis</em></h4>
+            <img class="mx1 flt--right" src="{{ url_for('static', filename="img/mastering-redis-bk-cover.png") }}" 
+                 style="width: 175px">
 
+            <p class="fnt--white p1">As the author of the upcoming book, <em>Mastering Redis</em>, 
+            to be published by Packt Publishing by the end of 2016. Although it is geared to 
+            the more general public technical audience, I use many examples from my research
+            on this project as well as other examples from my professional career as a 
+            librarian.</p>
+    
         </div>
     </section>
 </div>
@@ -33,7 +74,7 @@
 		<i class="fa fa-hand-o-left"></i>
 		Linked Data Fragment Server</a>
 <a class="btn--blue mx2" href="{{ url_for('show_slide', number=4) }}">
-		Python Prototypes
+		Key Schema
 		<i class="fa fa-hand-o-right"></i>
 
 </a>

@@ -1,15 +1,23 @@
 {% extends 'base.html' %}
 
 {% block main %}
-<h2 class="mx2">Preliminary Results</h2>
+<h2 class="mx2">Representing Triples</h2>
 <div class="grd-row mx2">
-    <section class="rd-row-col-3-6">
-        <h3>Servers</h3>
+    <section class="grd-row-col-3-6">
+        <h3>String</h3>
+        <p>
+        The first attempt to represent a triple relationship is to store an integer 
+        using the Redis key made up the three SHA1 of the subject, predicate, and
+        object using a colon <code>:</code> Redis convention as a delimiter.
+        </p>
+        <h3>Hash</h3>
+        <p>
 
-        <h3>Redis Triple Representations</h3>
+        </p>
+        <h3>Set</h3>
 
     </section>
-    <section class="rd-row-col-3-6">
+    <section class="grd-row-col-3-6">
         <div class="brdr--mid-gray p1 mx2">
             <h3>Sidebar</h3>
             <p>Mass insertion experiments &hellip;</p>
@@ -19,9 +27,9 @@
 <p class="measure p2">
 <a class="btn--green mx2" href="{{ url_for('show_slide', number=4) }}">
 		<i class="fa fa-hand-o-left"></i>
-		Python Prototypes</a>
+		Key Schema</a>
 <a class="btn--blue mx2" href="{{ url_for('show_slide', number=6) }}">
-		Go Production Server
+		Python Server Testing
 		<i class="fa fa-hand-o-right"></i>
 
 </a>

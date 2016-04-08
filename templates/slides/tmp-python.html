@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h2 class="mx2">Python Prototypes</h2>
+<p class="mx2">Using Python as a Triple Pattern Fragments server is relatively simple.  
+   A web client queries the linked-data fragments server with url and one or more parameters 
+   in the query string.</p>
+<div class="grd-row mx2">
+    <section class="grd-row-col-4-6">    
+        <ul style="font-size: 1.2em"> 
+            <li><strong >s</strong> parameter for the subject</li> 
+            <li><strong>p</strong> parameter for the predicate</li> 
+            <li><strong>o</strong> parameter for the object</li> 
+          </ul>
+    </section>
+
+</div>
+
+<p class="measure p2">
+<a class="btn--green mx2" href="{{ url_for('show_slide', number=3) }}">
+		<i class="fa fa-hand-o-left"></i>
+		Redis</a>
+<a class="btn--blue mx2" href="{{ url_for('show_slide', number=5) }}">
+		Results
+		<i class="fa fa-hand-o-right"></i>
+
+</a>
+</p>
+{% endblock %}
