@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h2 class="mx2">Go REST Server</h2>
+<p class="mx2">
+
+
+</p>
+<p class="measure p2">
+<a class="btn--green mx2" href="{{ url_for('show_slide', number=8) }}">
+		<i class="fa fa-hand-o-left"></i>
+                Python REST Server
+		</a>
+<a class="btn--blue mx2" href="{{ url_for('show_slide', number=10) }}">
+	        Next Steps
+		<i class="fa fa-hand-o-right"></i>
+
+</a>
+</p>
+{% endblock %}

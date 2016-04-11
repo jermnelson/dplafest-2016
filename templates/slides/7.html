@@ -1,10 +1,25 @@
 {% extends 'base.html' %}
 
 {% block main %}
-<h2 class="mx2">What's Next</h2>
+<h2 class="mx2">Ingestion Testing</h2>
+<div class="grd-row mx2">
+    <section class="grd-row-col-3-6">
+
+    </section>
+    <section class="grd-row-col-3-6">
+
+
+    </section>
+</div>
+
 <p class="measure p2">
-<a class="btn--green mx2" href="{{ url_for('show_slide', number=5) }}">
+<a class="btn--green mx2" href="{{ url_for('show_slide', number=6) }}">
 		<i class="fa fa-hand-o-left"></i>
-		Go Production Server</a>
+		Testing Setup</a>
+<a class="btn--blue mx2" href="{{ url_for('show_slide', number=8) }}">
+	    	Python REST Server
+		<i class="fa fa-hand-o-right"></i>
+
+</a>
 </p>
 {% endblock %}

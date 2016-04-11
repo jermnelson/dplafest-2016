@@ -1,31 +1,78 @@
 {% extends 'base.html' %}
 
 {% block main %}
-<h2 class="mx2">Go Production Server</h2>
+<h2 class="mx2">Experimental Testing Setup</h2>
 <div class="grd-row mx2">
-    <section class="grd-row-col-2-6">
-        <div class="brdr--light-gray bg--blue" style="width: 70%">
-            <p class="fnt--off-white px1">
-                Docker, what docker &hellip;
+    <section class="grd-row-col-3-6">
+         <p>
+             To create our initial DPLA testing record set, we took JSON records from three
+             DPLA collections from the January 2016 bulk downloads, extracted just the sourceResource from 
+            the JSON to create a simplified graph that was added to the testing record set. These collections
+            are. :
+        </p>
+        <ul> 
+            <li>University of Illinois Urbana-Champaign (<a href="https://dpla-provider-export.s3.amazonaws.com/2016/01/uiuc.json.gz">https://dpla-provider-export.s3.amazonaws.com/2016/01/uiuc.json.gz</a>), total JSON
+            records of 18,231. This collection was chosen to represent a smaller collection and I confess as 
+            because of a personal connection to this institution (GSLIS 2003 graduate) 
+            </li>
+            <li>The Getty (<a href="https://dpla-provider-export.s3.amazonaws.com/2016/01/getty.json.gz">https://dpla-provider-export.s3.amazonaws.com/2016/01/getty.json.gz</a>) collection contains 95,904 JSON records of
+            which 20,000 were randomly selected to include in the initial testing record set.  
 
-            </p>
-
-        </div>
+            </li>
+            <li>Smithsonian (<a href="https://dpla-provider-export.s3.amazonaws.com/2016/01/smithsonian.json.gz">https://dpla-provider-export.s3.amazonaws.com/2016/01/smithsonian.json.gz</a>) JSON files.</li>
+        </ul>
 
     </section>
-    <section class="grd-row-col-4-6">
-        <p>Both as an exercise in learning more about the <a href="https://golang.org/">Go Programming Language</a>
+    <section class="grd-row-col-2-6">
+        <table class="mx1">
+            <thead>
+            <tr>
+                <th>collection</th>
+                <th>total records</th>
+                <th>test record set</th>
+                <th>triples</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>uiuc.json</td>
+                <td>18,231</td>
+                <td>18,231</td>
+            </tr> 
+            <tr>
+                <td>getty.json</td>
+                <td>95,904</td>
+                <td>20,000</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>smithsonian.json</td>
+                <td>1,217,459</td>
+                <td>20,000</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>totals</th>
+                <td></td>
+                <td>58,231</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+
+      {#  <p>Both as an exercise in learning more about the <a href="https://golang.org/">Go Programming Language</a>
+
            and as way to develop a lean, stripped-down JSON server, work has started on a Go 
-           version of the Linked Data Fragments Server.</p>
+           version of the Linked Data Fragments Server.</p> #}
 
     </section>
 </div>
 <p class="measure p2">
 <a class="btn--green mx2" href="{{ url_for('show_slide', number=5) }}">
 		<i class="fa fa-hand-o-left"></i>
-		Results</a>
+		Representing Triples</a>
 <a class="btn--blue mx2" href="{{ url_for('show_slide', number=7) }}">
-	    What's Next	
+	    	Ingestion Testing
 		<i class="fa fa-hand-o-right"></i>
 
 </a>
