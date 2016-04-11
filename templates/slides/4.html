@@ -2,9 +2,22 @@
 
 {% block main %}
 <h2 class="mx2">Redis Key Schema</h2>
+<p class="mx2" style="font-size: 1.2em">
+    Because of the flexibility of Redis key (any characters up to a maximum size 
+    of 512 megabytes) a recommendation is to structure the relationships in the 
+    names and delimiters with the keys that are used in an application This
+    is called a key schema. The key schema used in the Linked Data Structure format
+    is relatively simple and is inspired by a technique for calling Lua server-side
+    scripts in Redis.
+</p>
 <div class="grd-row mx2">
     <section class="grd-row-col-2-6">
         <h3>Lua Scripting in Redis</h3>
+	<p>Redis offers server-side scripts using the Lua programming language.
+        You can load the script once and a SHA1 hash digest of the script is returned 
+	that then in subsequent function calls instead of sending 
+	the entire script over the network each time you want to 
+	execute the function, you use the SHA1 and any arguments</p>
 
     </section>
     <section class="grd-row-col-4-6">
