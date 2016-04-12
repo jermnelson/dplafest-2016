@@ -3,7 +3,7 @@
 {% block main %}
 <h2 class="mx2">Representing Triples</h2>
 <div class="grd-row mx2">
-    <section class="grd-row-col-3-6">
+    <section class="grd-row-col-2-6">
         <h3>String</h3>
         <p>
         The first attempt to represent a triple relationship is to store an integer 
@@ -11,34 +11,69 @@
         object using a colon <code>:</code> Redis convention as a delimiter.
         </p>
     </section>
-    <section class="grd-row-col-3-6">
+    <section class="grd-row-col-4-6">
         <div class="brdr--mid-gray p1 mx2">
             <h3>Examples</h3>
-            <p class="p1">
-                ``
-            </p>
+	    <pre>
+local function add_string(subject_digest, predicate_digest, object_digest)
+  local triple_key = subject_digest..":"..predicate_digest..":"..object_digest
+  local triple_body = 1
+  if ARGV[1] then
+     triple_body = ARGV[1]
+  end
+  redis.pcall('setnx', triple_key, triple_body)
+end
+	    </pre>
+
         </div>
     </section>
 </div>
 <div class="grd-row mx2 my1">
-    <section class="grd-row-col-3-6">
+    <section class="grd-row-col-2-6">
         <h3>Hash</h3>
         <p>
 
         </p>
     </section>
-    <section class="grd-row-col-3-6">
+    <section class="grd-row-col-4-6">
         <div class="brdr--mid-gray p1 mx2">
             <h3>Examples</h3>
+	    <pre>
+local function add_hash(subject_digest, predicate_digest, object_digest)
+  local subject_key = subject_digest..":pred-obj"
+  redis.pcall('hset', subject_key, predicate_digest..":"..object_digest, 1)
+  local predicate_key = predicate_digest..":subj-obj"
+  redis.pcall('hset', predicate_key, subject_digest..":"..object_digest, 1)
+  local object_key = object_digest..":subj-pred"
+  redis.pcall('hset', object_key, subject_digest..":"..predicate_digest, 1)
+end
+		</pre>
     </section>
 </div>
 <div class="grd-row mx2">
-    <section class="grd-row-col-3-6">
+    <section class="grd-row-col-2-6">
         <h3>Set</h3>
+	<p>
+	Beside serving as unordered collection of unique values, Redis sets
+	also offer set Boolean operators like <strong>UNION</strong>, 
+	<strong>intersection</strong>, and <strong>difference</strong>. 
+	The availability of teopens up a  way 
+	thinking about querying triples that is different SPARQL.
+	</p>
     </section>
-    <section class="grd-row-col-3-6">
+    <section class="grd-row-col-4-6">
         <div class="brdr--mid-gray p1 mx2">
             <h3>Examples</h3>
+	    <pre>
+local function add_set(subject_digest, predicate_digest, object_digest)
+  local subject_key = subject_digest..":pred-obj"
+  redis.pcall('sadd', subject_key, predicate_digest..":"..object_digest)
+  local predicate_key = predicate_digest..":subj-obj"
+  redis.pcall('sadd', predicate_key, subject_digest..":"..object_digest)
+  local object_key = object_digest..":subj-pred"
+  redis.pcall('sadd', object_key, subject_digest..":"..predicate_digest)
+end
+		</pre>
     </section>
 </div>
     <p class="measure p2">
