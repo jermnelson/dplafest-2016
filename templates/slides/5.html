@@ -10,6 +10,13 @@
         using the Redis key made up the three SHA1 of the subject, predicate, and
         object using a colon <code>:</code> Redis convention as a delimiter.
         </p>
+        <div class="bg--red p1">
+            <h4 class="fnt--off-white">Issues</h4>
+            <ul class="fnt--white">
+                <li>Use of the <strong>KEYS</strong> command is a O(n) operation</li>
+
+            </ul>
+        </div>
     </section>
     <section class="grd-row-col-4-6">
         <div class="brdr--mid-gray p1 mx2">
@@ -57,7 +64,7 @@ end
 	Beside serving as unordered collection of unique values, Redis sets
 	also offer set Boolean operators like <strong>UNION</strong>, 
 	<strong>intersection</strong>, and <strong>difference</strong>. 
-	The availability of teopens up a  way 
+	The availability of these Boolean operations eopens up a  way 
 	thinking about querying triples that is different SPARQL.
 	</p>
     </section>

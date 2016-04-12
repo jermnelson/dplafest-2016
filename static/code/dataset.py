@@ -19,21 +19,21 @@ def generate_recs(filepath, max_value, output):
     random_pos = []
     start = datetime.datetime.utcnow()
     print("Starting {} at {}".format(filepath, start))
-    print("...Generating Random positions")
-    while 1:
-        if len(random_pos) >= 50000: # This initial test go from 0-50k
-            break
-        rand_counter = random.randint(0, int(max_value))
-        if not rand_counter in random_pos:
-            random_pos.append(rand_counter)
+    #print("...Generating Random positions")
+    #while 1:
+    #    if len(random_pos) >= 20000: # This initial test go from 0-50k
+    #        break
+    #    rand_counter = random.randint(0, int(max_value))
+    #    if not rand_counter in random_pos:
+    #        random_pos.append(rand_counter)
     source_resources = ijson.items(
         open(filepath, encoding='utf8', errors='ignore'),
         "item._source.sourceResource")
     rec_counter = 0
     print("...Starting extracting records")
     for resource in source_resources:
-        if rec_counter in random_pos:
-            test_recs.append(resource)
+        #if rec_counter in random_pos:
+        test_recs.append(resource)
         rec_counter += 1
         if not rec_counter%100 and rec_counter > 0:
             #sys.stdout.write(".")
