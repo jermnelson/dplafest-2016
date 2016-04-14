@@ -51,7 +51,7 @@ def process_dpla_json(filepath, backend):
     dpla_json = json.load(open(filepath, errors='ignore'))
     start = datetime.datetime.utcnow()
     total_triples = 0
-    start_msg = "Started processing {} records at {}".format(len(dpla_json), start.isoformat())
+    start_msg = "Started processing {} records at {}".format(filepath, start.isoformat())
     print(start_msg)
     logging.info(start_msg)
     for i,row in enumerate(dpla_json):
