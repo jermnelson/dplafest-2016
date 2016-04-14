@@ -14,7 +14,7 @@ import rdflib
 import redis
 
 ldfs_cache = redis.StrictRedis()
-LUA_LOCATION = os.path.join("..", "linked-data-fragments/lib/")
+LUA_LOCATION = os.path.join("/home/jpnelson", "linked-data-fragments/lib/")
 LUA_SCRIPTS = dict()
 
 logging.basicConfig(filename='ingestion.log',level=logging.DEBUG)
@@ -51,7 +51,9 @@ def process_dpla_json(filepath, backend):
     dpla_json = json.load(open(filepath, errors='ignore'))
     start = datetime.datetime.utcnow()
     total_triples = 0
-    logging.info("Started processing {} records at {}".format(len(dpla_json), start.isoformat()))
+    start_msg = "Started processing {} records at {}".format(len(dpla_json), start.isoformat())
+    print(start_msg)
+    logging.info(start_msg)
     for i,row in enumerate(dpla_json):
         total_triples += process_source(row, backend)
         #if not i%100 and i>0:
@@ -61,12 +63,14 @@ def process_dpla_json(filepath, backend):
         #if not i%5000 and i > 0:
         #    print(" triples={} ".format(total_triples))
     end = datetime.datetime.utcnow()
-    logging.info("Finished processing at {}, total time {} mins. Records {} Triples {}\n".format(
+    end_msg = "Finished processing at {}, total time {} mins. Records {} Triples {}\n".format(
         end.isoformat(),
         (end-start).seconds / 60.0,
         len(dpla_json),
-        total_triples))
+        total_triples)
+    print(end_msg)
+    logging.info(end_msg)
 
+setup()
 if __name__ == '__main__':
-    setup()
     process_dpla_json()
