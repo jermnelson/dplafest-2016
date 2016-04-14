@@ -69,5 +69,3 @@ def create_dataset(filepath, max_value, output):
 
 if __name__ == '__main__':
     create_dataset()
-
-
