@@ -14,13 +14,14 @@
             <h4 class="fnt--off-white">Issues</h4>
             <ul class="fnt--white">
                 <li>Use of the <strong>KEYS</strong> command is a O(n) operation</li>
-
+		<li>The <strong>SCAN</strong> command is O(1) but to iterate through
+		the entire datastore is still O(n)</li>
             </ul>
         </div>
     </section>
     <section class="grd-row-col-4-6">
         <div class="brdr--mid-gray p1 mx2">
-            <h3>Examples</h3>
+            <h3>Lua Functions</h3>
 	    <pre>
 local function add_string(subject_digest, predicate_digest, object_digest)
   local triple_key = subject_digest..":"..predicate_digest..":"..object_digest

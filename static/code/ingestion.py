@@ -45,6 +45,17 @@ def process_source(source, backend):
     return triples_processed
 
 @click.command()
+def ingest_all():
+    uiuc = json.load(open(os.path.join("..", "json/uiuc.js"))
+    getty = json.load(open(os.path.join("..", "json/getty.js"))
+    smithsonian = json.load(open(os.path.join("..", "json/smithsonian.js"))
+    for collection in [uiuc, getty, smithsonian]:
+        for source in collection:
+            process_source(source)
+    
+
+
+@click.command()
 @click.option('--filepath', help='Full file path to DPLA JSON file')
 @click.option('--backend', help="Select hash, set, or string", default=None)
 def process_dpla_json(filepath, backend):
@@ -73,4 +84,5 @@ def process_dpla_json(filepath, backend):
 
 setup()
 if __name__ == '__main__':
-    process_dpla_json()
+    #process_dpla_json()
+    ingest_all()

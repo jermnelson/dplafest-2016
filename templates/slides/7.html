@@ -4,10 +4,56 @@
 <h2 class="mx2">Ingestion Testing</h2>
 <div class="grd-row mx2">
     <section class="grd-row-col-3-6">
-
+	<h3>Application Ingestion</h3>
+	Using a Redis client and a Python script,
+        <a href="{{ url_for('static', filename='code/ingestion.py') }}">ingestion.py</a>,
+        we iterated through the sample sets of Dp.la linked data that ingests each 
+        triple with complete round-trip to the Redis server. The results of this type 
+        of ingestion is:
+	<table class="mx1">
+            <thead>
+            <tr>
+                <th>collection</th>
+            	<th>triples</th>
+		<th>ingestion time</th>
+		<th>redis keys</th>
+		<th>max memory</th>
+	    </tr>
+	    </thead>
+	    <tr>
+		<td>uiuc.json</td>
+		<td class="txt--right">492,687</td>
+		<td class="txt--right">21.52 minutes</td>
+		<td class="txt--right">444,646</td>
+		<td class="txt--right">291.62 mb</td>
+	    </tr>
+	    <tr>
+                <td>getty.json</td>	
+		<td class="txt--right">982,716</td>
+                <td class="txt--right">55.6 minutes</td>
+		<td class="txt--right">568,507</td>
+		<td class="txt--right">528.16 mb</td>
+            </tr>
+	    <tr>
+		<td>smithsonian.json</td>
+                <td class="txt--right">1,604,376</td>
+		<td class="txt--right">60.2 minutes</td>
+		<td class="txt--right">1,293,047</td>
+                <td class="txt--right">734.59 mb</td>
+	    </tr>
+	    <tr>
+		<td><strong>Totals</strong></td>
+		<td>3,079,779</td>
+		<td>137.32 minutes</td>
+		<td>2,306,200</td>
+		<td class="txt--right">1554.37 mb</td>
+            </tr>
+       </table>
+	
     </section>
     <section class="grd-row-col-3-6">
-
+         <br>
+	<h3>Bulk Upload</h3>
 
     </section>
 </div>

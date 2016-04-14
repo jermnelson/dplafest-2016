@@ -12,6 +12,15 @@
          maintained by Salvatore Sanfilippo, Redis use as sophisticated "glue" technology powers solutions across both
          start-ups and established technology companies such as Twitter, Slack, Medium, and Cisco.
         </p>
+        <h4>LRU Caching</h4>
+	<p style="font-size: 1.1em;">
+	    As an in-memory datastore, Redis provides support for different modes of caching 
+	    that evicts keys based on a different rules depending on the mode. Redis
+	    allows you set timeouts on specific keys that get evicted based on a 
+           <strong>Less Recently Used (LRU)</strong> model where keys with less usage will be
+	   evicted over keys that been used by the application.
+
+	</p>
     </section>
     <section class="grd-row-col-4-6">
         <p>Redis real power comes from the rich set of operations you can perform on different data structures 
