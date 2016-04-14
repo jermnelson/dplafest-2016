@@ -46,12 +46,21 @@ def process_source(source, backend):
 
 @click.command()
 def ingest_all():
-    uiuc = json.load(open(os.path.join("..", "json/uiuc.js"))
-    getty = json.load(open(os.path.join("..", "json/getty.js"))
-    smithsonian = json.load(open(os.path.join("..", "json/smithsonian.js"))
+    uiuc = json.load(open(os.path.join("..", "json/uiuc.js")))
+    getty = json.load(open(os.path.join("..", "json/getty.js")))
+    smithsonian = json.load(open(os.path.join("..", "json/smithsonian.js")))
+    start = datetime.datetime.utcnow()
+    start_msg = "Started all at {}".format(start)
+    logging.info(start_msg)
+    count = 0
     for collection in [uiuc, getty, smithsonian]:
         for source in collection:
-            process_source(source)
+            process_source(source, None)
+            count += 1
+    end = datetime.datetime.utcnow()
+    logging.info("Finished ingestion all at {}, total {}".format(
+        end, count))
+
     
 
 
