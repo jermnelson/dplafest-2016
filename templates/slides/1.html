@@ -28,11 +28,74 @@
         providing a data dump where all of the data is processed locally to be useful, the Linked 
         Data Fragments approach
         instead offers a lightweight querying pattern called a 
-        <strong>Triple Pattern Fragment</strong> that returns  one or more triples based on a simplified
-        syntax.
+        <a href="http://www.hydra-cg.com/spec/latest/triple-pattern-fragments/"><strong>Triple Pattern Fragment</strong></a> that returns zero or more triples based on a simplified
+        search syntax..
         </p>
     </div>
 </div>
+<div class="grd-row mx2">
+    <div class="grd-row-col-4-6">
+	<h3>Triple Pattern Selector</h3>
+	<p>
+	    A triple pattern fragment is determined by a <strong>triple pattern selector</strong>
+	    where each selector is made up a <em>subject</em>, <em>predicate</em>, or 
+	    <em>object</em>. The <em>subject</em> and <em>predicate</em> must be either an IRI 
+	    or a variable while the <em>object</em> must be either an IRI, variable, or literal
+	    value. 
+	</p>
+    </div>
+</div>
+<div class="mx2">
+    <h3>Examples</h3>
+	<pre>{ ?s ?p ?o . }</pre>
+	<table>
+	    <tr>
+            	<th>Subject</th>
+		<td>http://dp.la/api/items/697865d065ccd4a47815a900049ee36d#sourceResource</td>
+	    </tr>
+	    <tr>
+		<th>Predicate</th>
+		<td>http://dp.la/api/items/context/title</td>
+	   </tr>
+	   <tr>
+	    	<th>Object</th>
+		<td>?o</td>
+	   </tr>
+	   <tr>
+		<th>Result (pseudo-json)</th>
+		<td><pre>
+{"data": [{"s":"http://dp.la/api/items/697865d065ccd4a47815a900049ee36d#sourceResource", 
+           "p":"http://dp.la/api/items/context/title", 
+           "o":"Chipped Projectile Points"}], 
+ "metadata": {"s": ".", "p":"void:triples", "s": 1}}
+		</pre>
+	   </tr>
+	</table>
+	<table>
+	    <tr>
+            	<th>Subject</th>
+		<td>?s</td>
+	    </tr>
+	    <tr>
+		<th>Predicate</th>
+		<td>http://dp.la/api/items/context/title</td>
+	   </tr>
+	   <tr>
+	    	<th>Object</th>
+		<td>?o</td>
+	   </tr>
+	   <tr>
+		<th>Result (pseudo-json)</th>
+		<td><pre>
+{"data": [{"s":"http://dp.la/api/items/697865d065ccd4a47815a900049ee36d#sourceResource", 
+           "p":"http://dp.la/api/items/context/title", 
+           "o":"Chipped Projectile Points"}], 
+ "metadata": {"s": ".", "p":"void:triples", "s": 1}}
+		</pre>
+	   </tr>
+	</table>
+</div>
+<hr>
 <p class="measure p2">
 <a class="btn--blue mx2" href="{{ url_for('show_slide', number=2) }}">
 		Server Beginnings

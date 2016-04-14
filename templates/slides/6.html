@@ -16,23 +16,25 @@
             because of a personal connection to this institution (GSLIS 2003 graduate) 
             </li>
             <li>The Getty (<a href="https://dpla-provider-export.s3.amazonaws.com/2016/01/getty.json.gz">https://dpla-provider-export.s3.amazonaws.com/2016/01/getty.json.gz</a>) collection contains 95,904 JSON records of
-            which 20,000 were randomly selected to include in the initial testing record set.  
+            which 50,000 were randomly selected to include in the initial testing record set.  
 
             </li>
             <li>Smithsonian (<a href="https://dpla-provider-export.s3.amazonaws.com/2016/01/smithsonian.json.gz">https://dpla-provider-export.s3.amazonaws.com/2016/01/smithsonian.json.gz</a>) JSON files.</li>
         </ul>
 
     </section>
-    <h3>Testing Record Set</h3>
     <section class="grd-row-col-2-6">
+	<h3>Testing Record Set</h3>
+
         <table class="mx1">
             <thead>
             <tr>
                 <th>collection</th>
                 <th>total records</th>
                 <th>test record set</th>
-                <th>Generation Time</th>
+                <th>generation time</th>
                 <th>triples</th>
+		<th>ingestion time</th>
             </tr>
             </thead>
             <tbody>
@@ -40,26 +42,28 @@
                 <td>uiuc.json</td>
                 <td>18,231</td>
                 <td>18,231</td>
-                <td></td>
+		<td>n/a</td>
+                <td>492,687</td>
+		<td>65.83 minutes</td>
             </tr> 
             <tr>
                 <td>getty.json</td>
                 <td>95,904</td>
-                <td>20,000</td>
+                <td>50,000</td>
                 <td>8.48 minutes</td>
                 <td></td>
             </tr>
             <tr>
                 <td>smithsonian.json</td>
                 <td>1,217,459</td>
-                <td>20,000</td>
+                <td>50,000</td>
                 <td>123.9 minutes</td>
                 <td></td>
             </tr>
             <tr>
                 <th>totals</th>
                 <td></td>
-                <td>58,231</td>
+                <td>118,231</td>
                 <td>132.38 minutes</td>
                 <td></td>
             </tr>
