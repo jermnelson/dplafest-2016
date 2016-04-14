@@ -28,9 +28,31 @@
         and objects are stored as string values using the SHA1 hash of the value as the Redis key.
         </p>
         </div>
+	<h4>Lua Scripting SHA1 in action</h4>
+	<pre>
+127.0.0.1:6379> EVAL "return KEYS[1]" 1 "hello"
+"hello"
+127.0.0.1:6379> SCRIPT LOAD "return KEYS[1]"
+"4a2267357833227dd98abdedb8cf24b15a986445"
+127.0.0.1:6379> EVALSHA 4a2267357833227dd98abdedb8cf24b15a986445 1 "hello"
+"hello"
+	</pre>
     </section>
 </div>
-
+<hr>
+<div class="mx2">
+    <h3>Subjects, Predicates, and Objects as SHA1s</h3>
+    <p>In this application's key schema, the SHA1 of each subject, predicate, and 
+    object is calculated and
+    then used those SHA1s are used in representing the triple relationship in various ways
+    in the triple store. There are advantages and disadvantages to this approach, the advantages 
+    are that all urls, literals, and blank-nodes are normalized to set size and can be 
+    calculated independently from Redis. Some disadvantages are that looking at the keys doesn't
+    tell you anything about the value the SHA1 was generated from (often in Redis application 
+    design the key relates information about the value store and relationships with other keys)
+    and another disadvantage is that even for a single character literal, we will store 40 
+    characters as the key.</p>
+ 
 <p class="measure p2">
 <a class="btn--green mx2" href="{{ url_for('show_slide', number=3) }}">
 		<i class="fa fa-hand-o-left"></i>
@@ -38,7 +60,6 @@
 <a class="btn--blue mx2" href="{{ url_for('show_slide', number=5) }}">
 		Representing Triples
 		<i class="fa fa-hand-o-right"></i>
-
 </a>
   </p>
 

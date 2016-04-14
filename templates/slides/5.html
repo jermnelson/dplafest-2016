@@ -2,17 +2,28 @@
 
 {% block main %}
 <h2 class="mx2">Representing Triples</h2>
+<div class="mx2">
+<p>Experimenting with different methods to represent a RDF triple in Redis varies depending on
+the data structure and access method. All three examples below start with following string values
+being set:</p>
+ <p><strong>Subject</strong> <em>http://dp.la/api/items/2e00995604348128caa10cd8f0e5952f#sourceResource</em> stored as value for it's SHA1 of b3dd113c3c9fbf71f7f0d09ffc933f86c4f1a79a.</p>
+<p><strong>Predicate</strong> <em>http://purl.org/dc/elements/1.1/title</em> stored as
+    as a value to key 5bb8348058bfded2e2fbfa2e31fadb7ea6f0a562</p>
+<p><strong>Object</strong> "Bimastos beddardi (Michaelsen)" is saved with a Redis key of 1e88f52951864dbbbc347bcce4f484ed2d9d115a</p>
+</div>
 <div class="grd-row mx2">
     <section class="grd-row-col-2-6">
         <h3>String</h3>
         <p>
         The first attempt to represent a triple relationship is to store an integer 
         using the Redis key made up the three SHA1 of the subject, predicate, and
-        object using a colon <code>:</code> Redis convention as a delimiter.
+        object using a colon <code>:</code> Redis convention as a delimiter. The Redis
+         <strong>KEYS</strong> or <strong>SCAN</strong> commands are used to filter and
+	retrieve different patterns to find triples in the datastore.
         </p>
-        <div class="bg--red p1">
-            <h4 class="fnt--off-white">Issues</h4>
-            <ul class="fnt--white">
+        <div class="p1">
+            <h4 class="fnt--red">Issues</h4>
+            <ul>
                 <li>Use of the <strong>KEYS</strong> command is a O(n) operation</li>
 		<li>The <strong>SCAN</strong> command is O(1) but to iterate through
 		the entire datastore is still O(n)</li>
@@ -21,7 +32,8 @@
     </section>
     <section class="grd-row-col-4-6">
         <div class="brdr--mid-gray p1 mx2">
-            <h3>Lua Functions</h3>
+            <h3>Examples</h3>
+            <h4>Lua String Function</h4>
 	    <pre>
 local function add_string(subject_digest, predicate_digest, object_digest)
   local triple_key = subject_digest..":"..predicate_digest..":"..object_digest
@@ -32,10 +44,24 @@ local function add_string(subject_digest, predicate_digest, object_digest)
   redis.pcall('setnx', triple_key, triple_body)
 end
 	    </pre>
-
+                
         </div>
     </section>
 </div>
+<div class="mx2">
+<p>The Redis key that is saved to the triplestore as a result of calling
+   <code>add_string</code> results in a single integer of 1 being set with the key
+         <strong style="font-size: .7em">b3dd113c3c9fbf71f7f0d09ffc933f86c4f1a79a:5bb8348058bfded2e2fbfa2e31fadb7ea6f0a562:1e88f52951864dbbbc347bcce4f484ed2d9d115a</strong> 
+</p>
+<p>To retrieve all of the objects that match this subject and predicate, issue the following <strong>KEYS</strong> with a wildcard in the object position:</p>
+<pre style="font-size: .7em">
+127.0.0.1:6379> KEYS b3dd113c3c9fbf71f7f0d09ffc933f86c4f1a79a:5bb8348058bfded2e2fbfa2e31fadb7ea6f0a562:*
+b3dd113c3c9fbf71f7f0d09ffc933f86c4f1a79a:5bb8348058bfded2e2fbfa2e31fadb7ea6f0a562:1e88f52951864dbbbc347bcce4f484ed2d9d115a
+</pre>
+<p>One the client-side, we need to parse the return the value to extract the object's SHA1 and 
+then retrieve the value to return back to http client.</p>
+</div>
+<hr>
 <div class="grd-row mx2 my1">
     <section class="grd-row-col-2-6">
         <h3>Hash</h3>
