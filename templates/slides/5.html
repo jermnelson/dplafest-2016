@@ -32,7 +32,6 @@ being set:</p>
     </section>
     <section class="grd-row-col-4-6">
         <div class="brdr--mid-gray p1 mx2">
-            <h3>Examples</h3>
             <h4>Lua String Function</h4>
 	    <pre>
 local function add_string(subject_digest, predicate_digest, object_digest)
@@ -61,12 +60,13 @@ b3dd113c3c9fbf71f7f0d09ffc933f86c4f1a79a:5bb8348058bfded2e2fbfa2e31fadb7ea6f0a56
 <p>One the client-side, we need to parse the return the value to extract the object's SHA1 and 
 then retrieve the value to return back to http client.</p>
 </div>
+{#
 <hr>
 <div class="grd-row mx2 my1">
     <section class="grd-row-col-2-6">
         <h3>Hash</h3>
         <p>
-
+         To address t
         </p>
     </section>
     <section class="grd-row-col-4-6">
@@ -83,15 +83,15 @@ local function add_hash(subject_digest, predicate_digest, object_digest)
 end
 		</pre>
     </section>
-</div>
+</div>#}
 <div class="grd-row mx2">
     <section class="grd-row-col-2-6">
         <h3>Set</h3>
 	<p>
 	Beside serving as unordered collection of unique values, Redis sets
-	also offer set Boolean operators like <strong>UNION</strong>, 
+	also offer set Boolean operators like <strong>union</strong>, 
 	<strong>intersection</strong>, and <strong>difference</strong>. 
-	The availability of these Boolean operations eopens up a  way 
+	The availability of these Boolean operations opens up a  way 
 	thinking about querying triples that is different SPARQL.
 	</p>
     </section>
