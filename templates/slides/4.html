@@ -24,7 +24,7 @@
         <div class="bg--orange p1">
         <p>The design of the Linked-Data Fragment Server Redis LRU Cache shamelessly copies Redis 
         in representing triples in the cache. Much like how the SHA1 of a Lua Script is used to 
-        execute server-side code in Redis; in the LDFS Redis LRU Cache design all subjects, predicates,
+        execute server-side code in Redis; in this project all subjects, predicates,
         and objects are stored as string values using the SHA1 hash of the value as the Redis key.
         </p>
         </div>
@@ -45,7 +45,7 @@
     <p>In this application's key schema, the SHA1 of each subject, predicate, and 
     object is calculated and
     then used those SHA1s are used in representing the triple relationship in various ways
-    in the triple store. There are advantages and disadvantages to this approach, the advantages 
+    in the triplestore. There are advantages and disadvantages to this approach, the advantages 
     are that all urls, literals, and blank-nodes are normalized to set size and can be 
     calculated independently from Redis. Some disadvantages are that looking at the keys doesn't
     tell you anything about the value the SHA1 was generated from (often in Redis application 

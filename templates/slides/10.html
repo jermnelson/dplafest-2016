@@ -3,14 +3,19 @@
 {% block main %}
 <h2 class="mx2">Next Steps</h2>
 <div class="grd-row mx2">
-    <section class="grd-row-col-2-6"> 
-    <ul>
-        <li>Redis Cluster Implementation</li>
-        <li>RDF Framework Integration</li>
-    </ul>
-    </section>
-    <section class=="grd-row-col-4-6"> 
-
+    <section class="grd-row-col-3-6"> 
+        <h3>Redis Cluster Implementation</h3>
+         <p>With the recent release of Redis 3.0, Redis now has a cluster mode that allows
+          you to treat multiple Redis instances as a single Redis server (with some
+          limitations). This makes it possible to have datasets that exceed the memory of 
+          an single Redis instance.</p>
+       </section>
+       <section class="grd-row-col-3-6"> 
+        <h3><a href="http://knowledgelinks.io">KnowledgeLinks</a> RDF Framework Integration</h3>
+         <p>The <a href="http://knowledgelinks.io/products/rdfframework/index.html">RDFFramework</a>
+          is a new open-source project that allows you define your application in whatever 
+          preferred RDF vocabulary and then augmented with KnowledgeLinks RDF vocabulary to   
+          generate dynamic HTML CRUD forms and APIs.</p>
     </section>
 </div>
 <hr>
@@ -24,7 +29,7 @@ AGPLv software license</p>
 <p class="measure p2">
 <a class="btn--green mx2" href="{{ url_for('show_slide', number=9) }}">
 		<i class="fa fa-hand-o-left"></i>
-                Go REST Server
+                Demonstration
 		</a>
 </p>
 {% endblock %}

@@ -12,11 +12,25 @@
             <li><strong>p</strong> parameter for the predicate</li> 
             <li><strong>o</strong> parameter for the object</li> 
           </ul>
+        <p style="font-size: 1.2em">
+           The Python server demonstrated today is built using the 
+           <a href="http://falconframework.org/">Falcon</a> framework for 
+           quick development of fast REST services in Python. The SPARQL
+           look-up in case of zero hits in the Redis cache is implemented but only lightly 
+           tested.
+	</p>
     </section>
     <section class="grd-row-col-2-6">    
-	<div class="brdr--mid-gray bg--green">
-	    <h4 class="mx2">What about GO server?</h4>
-	</div>
+	<div class="brdr--mid-gray bg--green p1">
+	    <h4 class="mx2">What about the GO server?</h4>
+            <p class="fnt--white">Due to multiple factors (like finishing a book), 
+            the Go language server is still in active
+            development and not ready for prime time. Because the Redis cache is
+            the primary source of delays and not the web server, the development
+            of the Go server was not as a high priority. If you're interested, please
+            <a href="mailto:jermnelson@gmail.com">e-mail</a> me to receive a notification
+            when Go server is production ready.
+        </div>
     </section>
 </div>
 

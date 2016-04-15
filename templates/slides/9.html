@@ -2,8 +2,9 @@
 
 {% block main %}
 <h2 class="mx2">Demonstration</h2>
-
-
+<p class="mx2">
+<a href="{{ url_for('static', filename="nb/Demonstration.ipynb") }}">Jupyter Notebook</a>
+</a>
 <p class="measure p2">
 <a class="btn--green mx2" href="{{ url_for('show_slide', number=8) }}">
 		<i class="fa fa-hand-o-left"></i>

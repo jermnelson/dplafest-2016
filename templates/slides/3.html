@@ -15,7 +15,8 @@
         <h4>LRU Caching</h4>
 	<p style="font-size: 1.1em;">
 	    As an in-memory datastore, Redis provides support for different modes of caching 
-	    that evicts keys based on a different rules depending on the mode. Redis
+	    that evict keys based on a different rules depending on the instance's configuration. 
+            Redis
 	    allows you set timeouts on specific keys that get evicted based on a 
            <strong>Less Recently Used (LRU)</strong> model where keys with less usage will be
 	   evicted over keys that been used by the application.

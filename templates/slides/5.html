@@ -87,6 +87,11 @@ end
 <div class="grd-row mx2">
     <section class="grd-row-col-2-6">
         <h3>Set</h3>
+        <p>
+         To represent triples with Redis sets, each subject, predicate, and object has a 
+         an individual set that stores the SHA1s of the remaining parts of the triple 
+         delimited with a colon.
+        </p>
 	<p>
 	Beside serving as unordered collection of unique values, Redis sets
 	also offer set Boolean operators like <strong>union</strong>, 
@@ -94,10 +99,21 @@ end
 	The availability of these Boolean operations opens up a  way 
 	thinking about querying triples that is different SPARQL.
 	</p>
+        <div class="p1">
+            <h4 class="fnt--red">Issues</h4>
+            <ul>
+		<li>The <strong>SSCAN</strong> command is O(1) but for some predicates that
+                are present in every graph  (say a title) then to iterate through
+		the entire set still is intensive but less than the entire datastore</li>
+                <li>Each triple is represented three ways to support the wildcards</li> 
+                    
+            </ul>
+        </div>
+
     </section>
     <section class="grd-row-col-4-6">
         <div class="brdr--mid-gray p1 mx2">
-            <h3>Examples</h3>
+            <h3>Lua Set Function</h3>
 	    <pre>
 local function add_set(subject_digest, predicate_digest, object_digest)
   local subject_key = subject_digest..":pred-obj"
@@ -109,6 +125,16 @@ local function add_set(subject_digest, predicate_digest, object_digest)
 end
 		</pre>
     </section>
+</div>
+<div class="mx2">
+  <p>The syntax used to represent the subject's predicate and object 
+   is <strong style="font-size: .8em">b3dd113c3c9fbf71f7f0d09ffc933f86c4f1a79a:pred-obj</strong>
+   that contains the SHA1s of predicates and objects of the triple. In this case, one member
+   of this set is <strong style="font-size: .8em">5bb8348058bfded2e2fbfa2e31fadb7ea6f0a562:1e88f52951864dbbbc347bcce4f484ed2d9d115a</strong></p>
+  <p>For the predicate set, the Redis key is 
+  <strong style="font-size: .8em">5bb8348058bfded2e2fbfa2e31fadb7ea6f0a562:subj-obj</strong> with
+   the members made up subjects' and objects' SHA1s like 
+
 </div>
     <p class="measure p2">
 <a class="btn--green mx2" href="{{ url_for('show_slide', number=4) }}">
